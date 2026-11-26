@@ -46,8 +46,8 @@ internal static class TeamAnchorSession
 
     /// <summary>
     /// A tie has been made since the last camp. A wall untie leaves this set. Camp and
-    /// leaving the session clear it. The climbot rope, placement, and Climbot collection
-    /// follow this, not the live tie.
+    /// leaving the session clear it. The climbot rope and Climbot collection follow this,
+    /// not the live tie.
     /// </summary>
     internal static bool RulesArmed { get; private set; }
 
@@ -122,7 +122,7 @@ internal static class TeamAnchorSession
     internal static bool IsLocalFollower => IsLinked && LocalPlayerId == FollowerId;
     internal static bool InRopeTeam => _inRopeTeam?.Invoke() == true;
     internal static bool AllowsPlacement =>
-        TeamAnchorChain.MayPlace(InRopeTeam, RulesArmed, IsLocalLeader && !LeaderLeft);
+        TeamAnchorChain.MayPlace(InRopeTeam, IsLocalLeader && !LeaderLeft);
 
     internal static void Bind(Func<bool> inRopeTeam)
         => _inRopeTeam = inRopeTeam ?? throw new ArgumentNullException(nameof(inRopeTeam));
