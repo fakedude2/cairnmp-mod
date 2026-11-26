@@ -9,6 +9,12 @@ All notable CairnMP changes are documented here. Releases follow
 > even when the wire-protocol number is unchanged. Read the compatibility note
 > for the release you install.
 
+## [Unreleased]
+
+### Changed
+
+- Rope Team: a piton can be placed only by the leader, and only while tied to a partner.
+
 ## Releases
 
 | Version | Date | Channel | Highlights |

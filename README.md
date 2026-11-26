@@ -37,7 +37,7 @@ base URL for local testing with `CAIRNMP_API_URL`.
 
 | Area | Included functionality |
 | --- | --- |
-| Climbing | Two climbers on one rope. Only the leader places pitons. Untying takes those pitons off the rope; they stay in the rock. With none left on the rope, a fall drops both |
+| Climbing | Two climbers on one rope. Only the leader places pitons, and only while tied to a partner. Untying takes those pitons off the rope; they stay in the rock. With none left on the rope, a fall drops both |
 | Players | Position, animation, cosmetics, lamps, hand and finger poses |
 | World | Weather, time of day, pitons, shared ground items, and world pings |
 | Communication | In-game chat, completion, host commands, and experimental proximity voice |

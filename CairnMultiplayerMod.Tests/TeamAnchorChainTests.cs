@@ -123,12 +123,9 @@ public sealed class TeamAnchorChainTests
     [Fact]
     public void TheFollowerCannotPlaceAndTheLeaderCannotTakeAChainPiton()
     {
-        Assert.True(TeamAnchorChain.MayPlace(ropeTeam: true, rulesArmed: false, leaderStillOnRope: false));
-        Assert.True(TeamAnchorChain.MayPlace(ropeTeam: true, rulesArmed: false, leaderStillOnRope: true));
-        Assert.False(TeamAnchorChain.MayPlace(ropeTeam: true, rulesArmed: true, leaderStillOnRope: false));
-        Assert.True(TeamAnchorChain.MayPlace(ropeTeam: true, rulesArmed: true, leaderStillOnRope: true));
-        Assert.True(TeamAnchorChain.MayPlace(ropeTeam: false, rulesArmed: true, leaderStillOnRope: false));
-        Assert.True(TeamAnchorChain.MayPlace(ropeTeam: false, rulesArmed: false, leaderStillOnRope: false));
+        Assert.False(TeamAnchorChain.MayPlace(ropeTeam: true, leaderStillOnRope: false));
+        Assert.True(TeamAnchorChain.MayPlace(ropeTeam: true, leaderStillOnRope: true));
+        Assert.True(TeamAnchorChain.MayPlace(ropeTeam: false, leaderStillOnRope: false));
 
         Assert.False(TeamAnchorChain.MayTake(linked: true, isLeader: true, onChain: true));
         Assert.True(TeamAnchorChain.MayTake(linked: true, isLeader: true, onChain: false));
@@ -390,7 +387,7 @@ public sealed class TeamAnchorChainTests
         Reset();
         TeamAnchorSession.Bind(() => true);
         Assert.False(TeamAnchorSession.RulesArmed);
-        Assert.True(TeamAnchorSession.AllowsPlacement);
+        Assert.False(TeamAnchorSession.AllowsPlacement);
 
         RopeLinkState.Apply(4, 7, true);
         TeamAnchorSession.OnClip(4, 4, 7, true);
@@ -408,7 +405,7 @@ public sealed class TeamAnchorChainTests
 
         TeamAnchorSession.DisarmRules();
         Assert.False(TeamAnchorSession.RulesArmed);
-        Assert.True(TeamAnchorSession.AllowsPlacement);
+        Assert.False(TeamAnchorSession.AllowsPlacement);
     }
 
     [Fact]
